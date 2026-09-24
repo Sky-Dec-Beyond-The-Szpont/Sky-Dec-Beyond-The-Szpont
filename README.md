@@ -41,18 +41,16 @@ The game uses additive scene loading to connect these systems while preserving p
 - Git / GitHub
 - ScriptableObjects
 
-## My Contribution
+## Project Architecture
 
-My main responsibilities included:
+The project is divided into several interconnected gameplay systems:
 
-- development of the procedural 3D world map,
-- path generation and player traversal,
-- integration of gameplay scenes,
-- additive scene loading and game-state synchronization,
-- 3D map visualization and interaction logic,
-- rendering, lighting and visual configuration,
-- performance optimization and stability testing,
-- final integration and end-to-end testing.
+- **3D World Map** – procedurally generated map with multiple paths and interactive locations.
+- **2D Dungeon Module** – procedurally generated levels using Random Walk and Corridor First algorithms.
+- **Card Battle System** – turn-based combat with decks, lanes, resources and boss encounters.
+- **Scene Management** – additive scene loading used to switch between gameplay layers while preserving game state.
+- **AI System** – Unity ML-Agents-based opponent used during card battles.
+- **Progression System** – dungeon rewards affect the player's deck and influence upcoming boss encounters.
 
 ## How to Run
 
