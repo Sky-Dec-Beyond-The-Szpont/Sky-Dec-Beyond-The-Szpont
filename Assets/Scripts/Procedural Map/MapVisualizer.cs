@@ -29,6 +29,10 @@ namespace SVS.ChessMaze
         public GameObject[] towerPrefabs;
         public float towerYOffset = 0.0f;
 
+        [Header("Tower Scenes")]
+        [SerializeField] private string firstTowerSceneName = "SampleScene";
+        [SerializeField] private string secondTowerSceneName = "SampleScene2";
+
         [Header("Tile Sets")]
         public TileSet[] tileSets;
 
@@ -309,7 +313,7 @@ namespace SVS.ChessMaze
                 var toTower = BuildWorldPathSegment(data.path, 0, mid);
                 var fromTower = BuildWorldPathSegment(data.path, mid, data.path.Count - 1);
 
-                SpawnTower(towerGridPos, towerPrefabs[firstIdx], "Wie풹 1", toTower, fromTower);
+                SpawnTower(towerGridPos, towerPrefabs[firstIdx], "Wie풹 1", firstTowerSceneName, toTower, fromTower);
             }
 
             // Wie풹 2 - alternatywna 쐁ie퓃a
@@ -335,13 +339,14 @@ namespace SVS.ChessMaze
                 var toTower = BuildWorldPathSegment(data.altPath, 0, mid);
                 var fromTower = BuildWorldPathSegment(data.altPath, mid, data.altPath.Count - 1);
 
-                SpawnTower(towerGridPos, towerPrefabs[secondIdx], "Wie풹 2", toTower, fromTower);
+                SpawnTower(towerGridPos, towerPrefabs[secondIdx], "Wie풹 2", secondTowerSceneName, toTower, fromTower);
             }
         }
 
         private void SpawnTower(Vector3 gridPos,
                         GameObject prefab,
                         string label,
+                        string sceneName,
                         List<Vector3> toTower,
                         List<Vector3> fromTowerToExit)
         {
@@ -367,8 +372,7 @@ namespace SVS.ChessMaze
                 click = tower.AddComponent<TowerClick>();
             }
 
-            click.label = label;
-            click.SetupPlayerPaths(playerMover, toTower, fromTowerToExit);
+            click.Configure(playerMover, toTower, fromTowerToExit, label, sceneName);
 
             if (animate)
             {
