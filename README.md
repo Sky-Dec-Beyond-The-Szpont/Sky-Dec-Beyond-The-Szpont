@@ -34,7 +34,7 @@ The game uses additive scene loading to connect these systems while preserving p
 
 ## Technical Stack
 
-- Unity 2022.3
+- Unity 6 (6000.2.10f1)
 - C#
 - Unity ML-Agents
 - Blender
@@ -55,7 +55,7 @@ The project is divided into several interconnected gameplay systems:
 ## How to Run
 
 1. Clone the repository.
-2. Open the project in Unity 2022.3.
+2. Open the project in Unity 6 (6000.2.10f1) or a compatible newer version.
 3. Open:
 
    `Assets/Scenes/MenuScene`
